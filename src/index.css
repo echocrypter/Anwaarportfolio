@@ -1,0 +1,175 @@
+/* Design System & Core Styles for Anwaar Portfolio */
+:root {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Italiana', serif;
+
+  /* Color Palette matching the photograph: Crimson Red, Studio Cream, Deep Onyx */
+  --color-crimson: #a31414;
+  --color-crimson-bright: #c81e1e;
+  --color-crimson-glow: rgba(199, 29, 29, 0.35);
+  
+  --color-studio-sand: #eae6de;
+  --color-studio-dark: #121214;
+  --color-studio-card: rgba(18, 18, 20, 0.72);
+  --color-studio-border: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.5);
+
+  --glass-bg: rgba(18, 18, 20, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #0d0d0f;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll margin offset for sections under floating pill navbar */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+/* Global Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Progressive Enhancement: Native Scroll-driven View Timeline */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .scroll-driven-entry {
+      animation: scrollFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}
+
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--color-crimson-bright);
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-crimson);
+}
+
+/* Utility Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(200, 30, 30, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(200, 30, 30, 0.75);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes beaconPing {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,579 @@
+
+/* =========================================
+   ANWAAR — PREMIUM GLASS NAVBAR
+========================================= */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 1.4rem 2.5rem;
+  pointer-events: none;
+  transition:
+    padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-wrapper.is-scrolled {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/* Main glass container */
+
+.navbar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1600px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 0.65rem 1.1rem 0.65rem 1.5rem;
+  pointer-events: auto;
+
+  background: rgba(24, 20, 20, 0.58);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.19),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.navbar-wrapper.is-scrolled .navbar-container {
+  background: rgba(19, 17, 18, 0.84);
+  border-color: rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   BRAND AND LEFT NAVIGATION
+========================================= */
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  min-width: 0;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  padding: 0.3rem 0.15rem;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.brand-logo:hover {
+  opacity: 0.82;
+}
+
+.brand-name {
+  color: #fff;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.075em;
+}
+
+.brand-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-crimson-bright, #dc303b);
+  box-shadow: 0 0 12px rgba(220, 48, 59, 0.55);
+}
+
+.nav-divider {
+  width: 1px;
+  height: 27px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+}
+
+/* Desktop navigation links */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.65rem 1.05rem;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.nav-link-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.nav-link-btn.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link-indicator {
+  position: absolute;
+  right: 50%;
+  bottom: 5px;
+  width: 13px;
+  height: 2px;
+  border-radius: 5px;
+  background: var(--color-crimson-bright, #dc303b);
+  opacity: 0;
+  transform: translateX(50%) scaleX(0.4);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-link-btn:hover .nav-link-indicator,
+.nav-link-btn.active .nav-link-indicator {
+  opacity: 1;
+  transform: translateX(50%) scaleX(1);
+}
+
+/* =========================================
+   RIGHT SIDE AND CONTACT BUTTON
+========================================= */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.contact-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 44px;
+  padding: 0.7rem 1.25rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  background: #fff;
+
+  color: #171416;
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-pill-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.contact-pill-btn:hover {
+  color: #fff;
+  background: var(--color-crimson-bright, #c62832);
+  border-color: var(--color-crimson-bright, #c62832);
+  box-shadow: 0 5px 22px rgba(198, 40, 50, 0.28);
+  transform: translateY(-1px);
+}
+
+.contact-pill-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.contact-pill-btn:active {
+  transform: scale(0.98);
+}
+
+/* Mobile menu toggle */
+
+.mobile-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #fff;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.mobile-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================
+   MOBILE DRAWER
+========================================= */
+
+.mobile-drawer {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 2.5rem;
+  right: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+
+  background: rgba(19, 17, 18, 0.94);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  backdrop-filter: blur(28px) saturate(150%);
+
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.99);
+  transform-origin: top center;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mobile-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.25rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-brand-row .brand-name {
+  font-size: 1.4rem;
+}
+
+/* Mobile navigation links */
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 70px;
+  padding: 0.9rem 1rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: rgba(255, 255, 255, 0.085);
+  border-color: rgba(220, 48, 59, 0.45);
+}
+
+.mobile-nav-link:hover {
+  transform: translateX(2px);
+}
+
+.mobile-nav-link-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mobile-link-badge {
+  color: var(--color-crimson-bright, #e13c46);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.mobile-link-title {
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.mobile-arrow {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-nav-link:hover .mobile-arrow {
+  color: #fff;
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .navbar-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .navbar-left {
+    gap: 1rem;
+  }
+
+  .nav-link-btn {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .navbar-container {
+    padding-left: 1rem;
+    padding-right: 0.85rem;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: 1rem 1rem 0;
+  }
+
+  .navbar-wrapper.is-scrolled {
+    padding-top: 0.65rem;
+  }
+
+  .navbar-container {
+    min-height: 58px;
+    gap: 0.5rem;
+    padding: 0.45rem 0.65rem 0.45rem 1rem;
+    border-radius: 999px;
+  }
+
+  .navbar-left {
+    gap: 0;
+  }
+
+  .brand-name {
+    font-size: 1.45rem;
+  }
+
+  .brand-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .nav-links,
+  .nav-divider {
+    display: none;
+  }
+
+  .navbar-right {
+    gap: 0.5rem;
+  }
+
+  .contact-pill-btn {
+    min-height: 40px;
+    gap: 0.35rem;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-pill-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .mobile-toggle-btn {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-drawer {
+    display: block;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 22px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 380px) {
+  .navbar-wrapper {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .navbar-container {
+    padding-left: 0.8rem;
+    padding-right: 0.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+  }
+
+  .contact-pill-btn {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.74rem;
+  }
+
+  .mobile-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-drawer {
+    padding: 0.85rem;
+  }
+}
+
+/* Keyboard accessibility */
+
+.brand-logo:focus-visible,
+.nav-link-btn:focus-visible,
+.contact-pill-btn:focus-visible,
+.mobile-toggle-btn:focus-visible,
+.mobile-nav-link:focus-visible {
+  outline: 2px solid var(--color-crimson-bright, #e13c46);
+  outline-offset: 4px;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-wrapper,
+  .navbar-container,
+  .brand-logo,
+  .nav-link-btn,
+  .nav-link-indicator,
+  .contact-pill-btn,
+  .contact-pill-btn svg,
+  .mobile-toggle-btn,
+  .mobile-drawer,
+  .mobile-nav-link,
+  .mobile-arrow {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,260 @@
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero-viewport {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #eae6de;
+}
+
+/* ========================================
+   HERO IMAGE
+======================================== */
+
+.hero-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #eae6de;
+  z-index: 0;
+}
+
+.hero-image-wrapper picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-main-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* ========================================
+   IMAGE VIGNETTE
+======================================== */
+
+.hero-gradient-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 15, 15, 0.06) 0%,
+    rgba(20, 15, 15, 0) 25%,
+    rgba(20, 15, 15, 0) 78%,
+    rgba(10, 10, 12, 0.1) 100%
+  );
+}
+
+/* ========================================
+   CAMERA HUD LAYER
+======================================== */
+
+.camera-hud-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+/* Top left */
+
+.hud-top-left {
+  top: 17%;
+  left: 24px;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Top right */
+
+.hud-top-right {
+  top: 17%;
+  right: 24px;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* Bottom left */
+
+.hud-bottom-left {
+  bottom: 24px;
+  left: 24px;
+  border-right: none;
+  border-top: none;
+}
+
+/* Bottom right */
+
+.hud-bottom-right {
+  bottom: 24px;
+  right: 24px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+  .hud-corner {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .hero-viewport {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image-wrapper picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Camera frame corners */
+
+  .hud-corner {
+    width: 22px;
+    height: 22px;
+  }
+
+  .hud-top-left,
+  .hud-top-right {
+    top: 100px;
+  }
+
+  .hud-top-left,
+  .hud-bottom-left {
+    left: 14px;
+  }
+
+  .hud-top-right,
+  .hud-bottom-right {
+    right: 14px;
+  }
+
+  .hud-bottom-left,
+  .hud-bottom-right {
+    bottom: 18px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .hero-viewport {
+    min-height: 480px;
+  }
+
+  .hero-main-img {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hud-corner {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hud-top-left,
+  .hud-top-right {
+    top: 95px;
+  }
+
+  .hud-top-left,
+  .hud-bottom-left {
+    left: 12px;
+  }
+
+  .hud-top-right,
+  .hud-bottom-right {
+    right: 12px;
+  }
+
+  .hud-bottom-left,
+  .hud-bottom-right {
+    bottom: 14px;
+  }
+}
+
+/* ========================================
+   SHORT DESKTOP SCREENS
+======================================== */
+
+@media (max-height: 600px) and (min-width: 769px) {
+  .hero-viewport {
+    min-height: 500px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-wrapper,
+  .hero-main-img {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

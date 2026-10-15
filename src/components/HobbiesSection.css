@@ -1,0 +1,539 @@
+
+/* ========================================
+   HOBBIES SECTION
+======================================== */
+
+.stitch-hobbies-section {
+  --hobby-bg: #0d0d0e;
+  --hobby-card: #171717;
+  --hobby-text: #f4f0e9;
+  --hobby-muted: #aaa5a0;
+  --hobby-red: #a91f1f;
+
+  position: relative;
+  width: 100%;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--hobby-bg);
+  color: var(--hobby-text);
+  font-family: inherit;
+}
+
+/* ========================================
+   VIEWFINDER CORNERS
+======================================== */
+
+.stitch-viewfinder {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(245, 240, 232, 0.2);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stitch-viewfinder-tl {
+  top: 28px;
+  left: 28px;
+  border-width: 1px 0 0 1px;
+}
+
+.stitch-viewfinder-tr {
+  top: 28px;
+  right: 28px;
+  border-width: 1px 1px 0 0;
+}
+
+.stitch-viewfinder-bl {
+  bottom: 28px;
+  left: 28px;
+  border-width: 0 0 1px 1px;
+}
+
+.stitch-viewfinder-br {
+  bottom: 28px;
+  right: 28px;
+  border-width: 0 1px 1px 0;
+}
+
+/* ========================================
+   CONTENT CONTAINER
+======================================== */
+
+.stitch-container {
+  position: relative;
+  z-index: 2;
+  width: min(1440px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+/* ========================================
+   SECTION LABEL
+======================================== */
+
+.stitch-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stitch-crimson-dot {
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--hobby-red);
+  box-shadow: 0 0 16px rgba(169, 31, 31, 0.3);
+}
+
+.stitch-tag-text {
+  margin: 0;
+  color: #8d8984;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.stitch-hobbies-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 42px;
+}
+
+.stitch-hobbies-header > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.stitch-headline-xl {
+  margin: 0 0 14px;
+  color: #eae5dc;
+  font-family: inherit;
+  font-size: clamp(38px, 5.2vw, 76px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -2.5px;
+  overflow-wrap: anywhere;
+}
+
+.stitch-slash {
+  display: inline-block;
+  margin: 0 8px;
+  color: var(--hobby-red);
+}
+
+.stitch-hobbies-subtitle {
+  max-width: 680px;
+  margin: 0;
+  color: #aaa5a0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.stitch-hobbies-count-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.stitch-hobbies-count-badge span {
+  color: #d5cfc6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ========================================
+   HOBBIES GRID
+======================================== */
+
+.stitch-hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* ========================================
+   HOBBY CARD
+======================================== */
+
+.stitch-hobby-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  background: var(--hobby-card);
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.stitch-hobby-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(169, 31, 31, 0.55);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* ========================================
+   HOBBY IMAGE
+======================================== */
+
+.stitch-hobby-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #242220;
+}
+
+.stitch-hobby-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 600ms ease;
+}
+
+.stitch-hobby-card:hover .stitch-hobby-img {
+  transform: scale(1.045);
+}
+
+/* ========================================
+   IMAGE CATEGORY PILL
+======================================== */
+
+.stitch-hobby-category-pill {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  max-width: calc(100% - 28px);
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.76);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.stitch-hobby-category-pill span {
+  display: block;
+  overflow: hidden;
+  color: #f5f1ea;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.stitch-hobby-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+}
+
+.stitch-hobby-title {
+  margin: 0 0 12px;
+  color: #f5f1ea;
+  font-size: clamp(19px, 1.5vw, 24px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.stitch-hobby-desc {
+  margin: 0;
+  color: var(--hobby-muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* ========================================
+   CARD FOOTER
+======================================== */
+
+.stitch-hobby-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.stitch-hobby-footer-tag {
+  color: #c0b8ae;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stitch-hobby-icon {
+  flex: 0 0 auto;
+  color: #c12a2a;
+}
+
+/* ========================================
+   SCROLL REVEAL FALLBACK
+   Content stays visible if no animation
+   script is attached to these classes.
+======================================== */
+
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========================================
+   LARGE TABLETS
+======================================== */
+
+@media (max-width: 1100px) {
+  .stitch-container {
+    width: calc(100% - 56px);
+  }
+
+  .stitch-hobbies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .stitch-hobby-title {
+    font-size: 21px;
+  }
+
+  .stitch-hobby-content {
+    padding: 22px;
+  }
+}
+
+/* ========================================
+   TABLETS AND MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .stitch-hobbies-section {
+    padding: 64px 0 72px;
+  }
+
+  .stitch-container {
+    width: calc(100% - 40px);
+  }
+
+  .stitch-viewfinder {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stitch-viewfinder-tl {
+    top: 16px;
+    left: 16px;
+  }
+
+  .stitch-viewfinder-tr {
+    top: 16px;
+    right: 16px;
+  }
+
+  .stitch-viewfinder-bl {
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .stitch-viewfinder-br {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .stitch-tag-row {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stitch-tag-text {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .stitch-hobbies-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .stitch-headline-xl {
+    margin-bottom: 12px;
+    font-size: clamp(34px, 7vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+  }
+
+  .stitch-slash {
+    margin: 0 4px;
+  }
+
+  .stitch-hobbies-subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .stitch-hobbies-count-badge {
+    min-height: 36px;
+    padding: 0 13px;
+  }
+
+  .stitch-hobbies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .stitch-hobby-content {
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .stitch-hobby-title {
+    font-size: 19px;
+  }
+
+  .stitch-hobby-desc {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 520px) {
+  .stitch-hobbies-section {
+    padding: 52px 0 60px;
+  }
+
+  .stitch-container {
+    width: calc(100% - 36px);
+  }
+
+  .stitch-tag-text {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+
+  .stitch-headline-xl {
+    font-size: clamp(30px, 8.4vw, 42px);
+    letter-spacing: -1.2px;
+    overflow-wrap: normal;
+  }
+
+  .stitch-hobbies-subtitle {
+    font-size: 14px;
+  }
+
+  .stitch-hobbies-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .stitch-hobby-card {
+    border-radius: 12px;
+  }
+
+  .stitch-hobby-img-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .stitch-hobby-content {
+    gap: 22px;
+    padding: 20px;
+  }
+
+  .stitch-hobby-title {
+    font-size: 21px;
+  }
+
+  .stitch-hobby-desc {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .stitch-hobby-category-pill {
+    left: 12px;
+    bottom: 12px;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE
+======================================== */
+
+@media (max-width: 360px) {
+  .stitch-container {
+    width: calc(100% - 28px);
+  }
+
+  .stitch-headline-xl {
+    font-size: 29px;
+  }
+
+  .stitch-tag-text {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .stitch-hobby-content {
+    padding: 16px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-hobby-card,
+  .stitch-hobby-img {
+    transition: none !important;
+  }
+
+  .stitch-hobby-card:hover {
+    transform: none;
+  }
+
+  .stitch-hobby-card:hover .stitch-hobby-img {
+    transform: none;
+  }
+}

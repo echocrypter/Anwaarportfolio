@@ -1,0 +1,466 @@
+
+/* ========================================
+   EDUCATION SECTION — PREMIUM EDITORIAL
+======================================== */
+
+.stitch-edu-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff8f0;
+  color: #1e1b16;
+  border-top: 1px solid rgba(30, 27, 22, 0.12);
+}
+
+.stitch-edu-section *,
+.stitch-edu-section *::before,
+.stitch-edu-section *::after {
+  box-sizing: border-box;
+}
+
+/* Container */
+
+.stitch-edu-section .stitch-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1240px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+/* Corner markers */
+
+.stitch-edu-section .stitch-viewfinder {
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(30, 27, 22, 0.35);
+  pointer-events: none;
+}
+
+.stitch-edu-section .stitch-viewfinder-tl {
+  top: 1.5rem;
+  left: 1.5rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.stitch-edu-section .stitch-viewfinder-tr {
+  top: 1.5rem;
+  right: 1.5rem;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.stitch-edu-section .stitch-viewfinder-bl {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.stitch-edu-section .stitch-viewfinder-br {
+  right: 1.5rem;
+  bottom: 1.5rem;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* Section label */
+
+.stitch-edu-section .stitch-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.stitch-edu-section .stitch-crimson-dot {
+  display: inline-block;
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  background: #8a1a17;
+  border-radius: 2px;
+}
+
+.stitch-edu-section .stitch-tag-text {
+  margin: 0;
+  color: #615e5b;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Heading — matching About typography */
+
+.stitch-edu-section .stitch-headline-wrap {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.stitch-edu-section .stitch-headline-xl {
+  margin: 0;
+  color: #1e1b16;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.stitch-edu-section .stitch-slash {
+  margin: 0 0.12em;
+  color: #8a1a17;
+}
+
+.stitch-edu-section .stitch-heading-rest {
+  color: inherit;
+}
+
+/* Premium cards grid */
+
+.stitch-edu-section .stitch-edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Card surface */
+
+.stitch-edu-section .stitch-edu-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 330px;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fffdf9 62%,
+    #fbf3e8 100%
+  );
+
+  border: 1px solid rgba(68, 48, 29, 0.12);
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 12px rgba(39, 29, 19, 0.035),
+    0 14px 34px rgba(39, 29, 19, 0.055);
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Gold top accent */
+
+.stitch-edu-section .stitch-edu-card::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #8a1a17 0%,
+    #b88a52 45%,
+    #e3c69d 75%,
+    transparent 100%
+  );
+
+  opacity: 0.9;
+}
+
+/* Subtle decorative glow */
+
+.stitch-edu-section .stitch-edu-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -65px;
+  right: -55px;
+  width: 175px;
+  height: 175px;
+
+  background: rgba(184, 138, 82, 0.075);
+  border-radius: 50%;
+
+  transition: transform 0.45s ease;
+  pointer-events: none;
+}
+
+/* Hover effect */
+
+@media (hover: hover) {
+  .stitch-edu-section .stitch-edu-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(184, 138, 82, 0.42);
+
+    box-shadow:
+      0 8px 18px rgba(39, 29, 19, 0.055),
+      0 22px 48px rgba(39, 29, 19, 0.10);
+  }
+
+  .stitch-edu-section .stitch-edu-card:hover::after {
+    transform: scale(1.2);
+  }
+
+  .stitch-edu-section .stitch-edu-card:hover
+    .stitch-edu-number {
+    color: #8a1a17;
+    border-color: rgba(138, 26, 23, 0.3);
+  }
+}
+
+/* Card top row */
+
+.stitch-edu-section .stitch-edu-card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.35rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid rgba(30, 27, 22, 0.1);
+}
+
+.stitch-edu-section .stitch-edu-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+
+  color: #5d5143;
+  background: rgba(184, 138, 82, 0.09);
+  border: 1px solid rgba(184, 138, 82, 0.22);
+  border-radius: 12px;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.stitch-edu-section .stitch-edu-period {
+  color: #756b60;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-align: right;
+}
+
+/* Card content */
+
+.stitch-edu-section .stitch-edu-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Category pill */
+
+.stitch-edu-section .stitch-edu-meta {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 7px 12px;
+
+  color: #805c32;
+  background: rgba(184, 138, 82, 0.1);
+  border: 1px solid rgba(184, 138, 82, 0.2);
+  border-radius: 999px;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+}
+
+/* Degree title */
+
+.stitch-edu-section .stitch-edu-degree {
+  margin: 0 0 0.65rem;
+  color: #1e1b16;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+/* Institution */
+
+.stitch-edu-section .stitch-edu-institution {
+  margin: 0;
+  color: #8a1a17;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.93rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* Divider */
+
+.stitch-edu-section .stitch-edu-divider {
+  width: 42px;
+  height: 2px;
+  margin: 1.3rem 0;
+
+  background: #b88a52;
+  border-radius: 2px;
+}
+
+/* Description */
+
+.stitch-edu-section .stitch-edu-description {
+  max-width: 42ch;
+  margin: 0;
+
+  color: #6f6559;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* Large decorative number */
+
+.stitch-edu-section .stitch-edu-card-watermark {
+  position: absolute;
+  right: 1rem;
+  bottom: -2rem;
+  z-index: 0;
+
+  color: rgba(138, 26, 23, 0.035);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 9rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keyboard accessibility */
+
+.stitch-edu-section .stitch-edu-card:focus-within {
+  outline: 2px solid #b88a52;
+  outline-offset: 4px;
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
+  .stitch-edu-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .stitch-edu-section .stitch-edu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stitch-edu-section .stitch-edu-card {
+    min-height: 0;
+  }
+
+  .stitch-edu-section .stitch-headline-wrap {
+    margin-bottom: 2.25rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .stitch-edu-section {
+    padding: 4rem 1rem;
+  }
+
+  .stitch-edu-section .stitch-edu-card {
+    padding: 1.4rem;
+    border-radius: 15px;
+  }
+
+  .stitch-edu-section .stitch-edu-card-top {
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .stitch-edu-section .stitch-edu-period {
+    font-size: 0.68rem;
+  }
+
+  .stitch-edu-section .stitch-edu-degree {
+    font-size: 1.3rem;
+  }
+
+  .stitch-edu-section .stitch-edu-card-watermark {
+    right: 0.5rem;
+    bottom: -1rem;
+    font-size: 7rem;
+  }
+
+  .stitch-edu-section .stitch-viewfinder-tl {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .stitch-edu-section .stitch-viewfinder-tr {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .stitch-edu-section .stitch-viewfinder-bl {
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .stitch-edu-section .stitch-viewfinder-br {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-edu-section .stitch-edu-card,
+  .stitch-edu-section .stitch-edu-card::after,
+  .stitch-edu-section .stitch-edu-number {
+    transition: none;
+  }
+
+  .stitch-edu-section .stitch-edu-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,365 @@
+/* InfoModal Styles */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(8, 8, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: rgba(18, 18, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 2.2rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: cardSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardSlideUp {
+  from {
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal Header & Tabs */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-tab-btn:hover {
+  color: #ffffff;
+}
+
+.modal-tab-btn.active {
+  background: #ffffff;
+  color: #0c0c0e;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--color-crimson-bright);
+  border-color: var(--color-crimson-bright);
+  transform: rotate(90deg);
+}
+
+/* Content Area */
+.modal-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal-heading-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.modal-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-crimson-bright);
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.modal-description {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* Highlights Grid (About) */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.highlight-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.highlight-val {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.quote-box {
+  margin-top: 0.75rem;
+  padding: 1.1rem 1.4rem;
+  background: rgba(163, 20, 20, 0.08);
+  border-left: 3px solid var(--color-crimson-bright);
+  border-radius: 0 14px 14px 0;
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hobbies Grid */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.hobby-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.15rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: all 0.25s ease;
+}
+
+.hobby-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.hobby-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.hobby-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-crimson-bright);
+  background: rgba(200, 30, 30, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.hobby-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hobby-desc {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Timeline (Education) */
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.timeline-point {
+  position: absolute;
+  left: -1.45rem;
+  top: 0.25rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-crimson-bright);
+  box-shadow: 0 0 10px var(--color-crimson-bright);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.timeline-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.timeline-degree {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.timeline-period {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-crimson-bright);
+}
+
+.timeline-institution {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.timeline-details {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.footer-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.modal-action-btn {
+  background: #ffffff;
+  color: #0c0c0e;
+  border: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-action-btn:hover {
+  background: var(--color-crimson-bright);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .highlights-grid,
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-card {
+    padding: 1.5rem;
+  }
+  .timeline-top {
+    flex-direction: column;
+  }
+}
